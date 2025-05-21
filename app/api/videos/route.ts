@@ -5,10 +5,14 @@ const prisma = new PrismaClient()
 
 export async function GET(request: NextRequest){
     try{
+        console.log("api vidoess start");
+        
         const videos=await prisma.video.findMany({
             orderBy:{createdAt:"desc"}
             
         })
+        console.log("api videos",videos);
+        
         return NextResponse.json(videos)
     }
     catch (error){
