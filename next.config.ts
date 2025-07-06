@@ -1,10 +1,18 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
-  images: {
-    domains: ['img.clerk.com','res.cloudinary.com'],
+const redirects = async () => [
+  {
+    source: '/',
+    destination: '/home',
+    permanent: true,
   },
+];
+
+const nextConfig: NextConfig = {
+  images: {
+    domains: ['img.clerk.com', 'res.cloudinary.com'],
+  },
+  redirects,
 };
 
 export default nextConfig;
